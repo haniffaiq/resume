@@ -5,29 +5,50 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((err) => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again later.",
+          variant: "destructive",
+        });
+        console.error("EmailJS Error:", err);
+      });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -36,14 +57,17 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Let's Talk for</h2>
-          <h3 className="text-3xl font-bold text-primary mb-4">Something special</h3>
+          <h3 className="text-3xl font-bold text-primary mb-4">
+            Something special
+          </h3>
           <p className="text-lg text-surface-medium max-w-2xl mx-auto">
             I'm always interested in hearing about new projects and opportunities. 
             Whether you have a question or just want to say hi, I'll get back to you!
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left: Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in touch</h3>
@@ -62,7 +86,6 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
-                
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg">
                     <Phone className="text-primary" size={20} />
@@ -77,7 +100,6 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
-                
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-primary/10 rounded-lg">
                     <MapPin className="text-primary" size={20} />
@@ -89,7 +111,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4">Follow me on</h4>
               <div className="flex items-center gap-4">
@@ -112,7 +134,8 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
+          {/* Right: Form */}
           <Card className="p-8 shadow-medium">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
@@ -144,21 +167,19 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2">
                   Subject
                 </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What's this about?"
-                  required
-                />
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="What's this about?"
+                    required
+                  />
               </div>
-              
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Message
@@ -173,7 +194,6 @@ const Contact = () => {
                   required
                 />
               </div>
-              
               <Button type="submit" size="lg" className="w-full">
                 Send Message
               </Button>
