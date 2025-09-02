@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.jpg";
-import TypingText from "./TypingText";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -28,39 +27,33 @@ const Hero = () => {
           </div>
           
           {/* Content Section - Takes 2 columns */}
-          <div className="lg:col-span-2 space-y-8 order-2 lg:order-2 animate-fade-in">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                  <TypingText 
-                    text="Hello I'm Hanif Faiq." 
-                    delay={800}
-                    speed={100}
-                    className="text-foreground"
-                  />
-                </h1>
-              </div>
+          <div className="lg:col-span-2 space-y-6 order-2 lg:order-2 animate-fade-in">
+            <div className="space-y-4">
+              {/* Main Title */}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground">
+                Hello I'm <span className="text-primary">Hanif Faiq</span>
+              </h1>
               
-              <div className="animate-fade-in" style={{ animationDelay: '4s', animationFillMode: 'both' }}>
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-surface-medium font-medium">
-                  <TypingText 
-                    text="Backend Developer" 
-                    delay={4500}
-                    speed={120}
-                    className="text-primary font-semibold"
-                  />
-                </h2>
-              </div>
+              {/* Comprehensive Subtitle */}
+              <h2 className="text-lg md:text-xl lg:text-2xl text-surface-medium font-medium leading-relaxed">
+                <span className="text-primary font-semibold">Backend Developer</span> | 
+                <span className="text-foreground"> DevOps Engineer</span> | 
+                <span className="text-foreground"> Data Engineer</span> | 
+                <span className="text-foreground"> Frontend Developer</span>
+              </h2>
               
-              <div className="animate-fade-in" style={{ animationDelay: '7s', animationFillMode: 'both' }}>
-                <p className="text-base md:text-lg text-surface-medium leading-relaxed">
-                  Experienced and versatile IT professional with a background in frontend, backend, and data engineering. 
-                  Based in Jakarta, Indonesia.
-                </p>
-              </div>
+              {/* Extended Greeting Text */}
+              <p className="text-base md:text-lg text-surface-medium leading-relaxed">
+                Experienced and versatile IT professional with over 5 years of expertise spanning multiple domains. 
+                Specialized in developing robust backend systems, implementing DevOps practices, building data pipelines, 
+                and creating seamless frontend experiences. Currently working as DevOps Engineer at Huawei Indonesia, 
+                with a proven track record of scaling systems to handle 500,000+ messages per month and delivering 
+                enterprise-grade solutions. Based in Jakarta, Indonesia, and passionate about leveraging cutting-edge 
+                technologies to solve complex business challenges.
+              </p>
             </div>
             
-            <div className="animate-fade-in space-y-4" style={{ animationDelay: '8s', animationFillMode: 'both' }}>
+            <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3">
                 <a 
                   href="mailto:haniffaiq95@gmail.com"
