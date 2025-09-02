@@ -1,14 +1,16 @@
-# Stage 1: Build the app
+# Stage 1: Build
 FROM node:20-alpine AS builder
-
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
 
-# Stage 2: Output (only build result)
-FROM alpine:3.18
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
-CMD ["echo", "Build completed. Artifacts are in /app/dist"]
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/dist ./
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
