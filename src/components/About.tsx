@@ -1,0 +1,84 @@
+import { Card } from "@/components/ui/card";
+import { GraduationCap, MapPin, Calendar } from "lucide-react";
+
+const About = () => {
+  return (
+    <section id="about" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-4xl font-bold mb-6">About Me</h2>
+              <p className="text-lg text-surface-medium leading-relaxed mb-6">
+                Experienced and versatile IT professional with a background in frontend, backend, and data engineering. 
+                Skilled in developing and deploying applications using a variety of technologies, including React.js, Node.js, 
+                Python, PostgreSQL and MongoDB.
+              </p>
+              <p className="text-lg text-surface-medium leading-relaxed mb-6">
+                Proven track record of successfully delivering projects, such as creating features for IoT device monitoring 
+                systems and developing data pipelines for consolidating multiple data sources. Strong collaboration skills, 
+                demonstrated through effective teamwork with cross-functional teams and clients to achieve project goals.
+              </p>
+              <p className="text-lg text-surface-medium leading-relaxed">
+                Passionate about learning and adapting to new technologies, with a focus on continuous improvement and 
+                delivering high-quality solutions. Committed to personal growth and always seeking new knowledge to better 
+                assist the team in problem-solving.
+              </p>
+            </div>
+          </div>
+          
+          <div className="space-y-6">
+            <Card className="p-6 shadow-soft">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <GraduationCap className="text-primary" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Education</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-medium">Bachelor of Telecommunication Engineering</p>
+                      <p className="text-surface-medium text-sm">Universitas Telkom - Bandung, Indonesia</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">High School Diploma</p>
+                      <p className="text-surface-medium text-sm">Telkom School - Jakarta, Indonesia</p>
+                      <p className="text-surface-medium text-sm">Telecommunication Transmission Engineering</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-6 shadow-soft">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <MapPin className="text-primary" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Location</h3>
+                  <p className="text-surface-medium">Jakarta, Indonesia</p>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-6 shadow-soft">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <Calendar className="text-primary" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Experience</h3>
+                  <p className="text-surface-medium">5+ years in software development</p>
+                  <p className="text-surface-medium">Currently DevOps at Huawei Indonesia</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
