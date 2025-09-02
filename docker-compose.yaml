@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  portfolio-build:
+    build: .
+    container_name: portfolio-build
+    volumes:
+      - ./dist:/app/dist
+    command: ["echo", "Build completed"]
+
+  portfolio-nginx:
+    image: nginx:alpine
+    container_name: portfolio-nginx
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+    restart: always
