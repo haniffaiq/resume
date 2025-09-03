@@ -10,7 +10,7 @@ const Projects = () => {
       description: "Designed to connect and manage various IoT devices in industrial environments. With this platform, companies can efficiently monitor, control, and analyze data from these devices.",
       tech: ["Python", "React.js", "PostgreSQL", "Docker", "Azure"],
       year: "2023",
-      type: "IoT Platform"
+      type: "Dashboard and IoT Platform"
     },
     {
       id: "02",
@@ -26,7 +26,7 @@ const Projects = () => {
       description: "Utilizing EEG signal data to classify brain activity into alcoholic and non-alcoholic categories using Support Vector Machine (SVM) and Artificial Neural Network (ANN) algorithms.",
       tech: ["Python", "SVM", "ANN", "EEG", "Machine Learning"],
       year: "2023",
-      type: "ML Classification"
+      type: "Machine Learning"
     },
     {
       id: "04",
