@@ -5,7 +5,7 @@ const organisations = [
     name: "Mozilla Indonesia",
     role: "Volunteer",
     location: "Jakarta, Indonesia",
-    period: "Jul 2020 - Aug 2020",
+    period: "Mar 2018 - Mar 2023",
     description:
       "Contributed as a keyholder and community organizer for Mozilla Indonesia.",
     achievements: [
@@ -19,7 +19,7 @@ const organisations = [
     name: "Antenna Laboratory, Telkom University",
     role: "Antenna Research and Development Assistant",
     location: "Bandung, Indonesia",
-    period: "Apr 2020 - Aug 2022",
+    period: "Feb 2019 - Jul 2022",
     description:
       "Assisted with research and development projects at the Antenna Laboratory, Universitas Telkom.",
     achievements: [
@@ -33,7 +33,7 @@ const organisations = [
     name: "HMTT (Himpunan Mahasiswa Teknik Telekomunikasi)",
     role: "Research and Development Team Lead",
     location: "Bandung, Indonesia",
-    period: "Aug 2018 - Sep 2022",
+    period: "Jun 2018 - Nov 2018",
     description:
       "Led the Research and Development (R&D) Team exploring telecommunications innovations.",
     achievements: [
@@ -47,7 +47,7 @@ const organisations = [
     name: "Electro Club, SMK Telkom Jakarta",
     role: "Leader",
     location: "Jakarta, Indonesia",
-    period: "Jun 2015 - Jun 2018",
+    period: "Aug 2016 - Aug 2017",
     description:
       "Led Electro Club, a student organization centered on electronics and technology.",
     achievements: [

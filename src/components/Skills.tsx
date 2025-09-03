@@ -69,7 +69,7 @@ const Skills = () => {
   }, {} as Record<string, typeof skills>);
 
   return (
-    <section id="skills" className="pb-20 bg-background">
+    <section id="skills" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-3">My Skills</h2>
