@@ -10,23 +10,22 @@ const About = () => {
             <div>
               <h2 className="text-4xl font-bold mb-6">About Me</h2>
               <p className="text-lg text-surface-medium leading-relaxed mb-6">
-                Experienced and versatile IT professional with a background in frontend, backend, and data engineering. 
-                Skilled in developing and deploying applications using a variety of technologies, including React.js, Node.js, 
-                Python, PostgreSQL and MongoDB.
+                IT professional with 5+ years of experience across DevOps, backend, and data engineering.
+                Skilled in building and scaling systems using AWS, GCP, Docker, CI/CD, Python, and PostgreSQL.
               </p>
               <p className="text-lg text-surface-medium leading-relaxed mb-6">
-                Proven track record of successfully delivering projects, such as creating features for IoT device monitoring 
-                systems and developing data pipelines for consolidating multiple data sources. Strong collaboration skills, 
-                demonstrated through effective teamwork with cross-functional teams and clients to achieve project goals.
+                Proven track record of delivering enterprise-grade solutions: scaling a WhatsApp bot to 500K+ messages/month at Huawei,
+                optimizing AWS infrastructure and zero-downtime deployments at Elev8, and refactoring 90+ APIs while integrating Zoho CRM
+                with GCP at Wine Adore. Experienced in IoT-ready APIs, data pipelines, and real-time monitoring systems.
               </p>
               <p className="text-lg text-surface-medium leading-relaxed">
-                Passionate about learning and adapting to new technologies, with a focus on continuous improvement and 
-                delivering high-quality solutions. Committed to personal growth and always seeking new knowledge to better 
-                assist the team in problem-solving.
+                Passionate about automation, scalability, and security—continuously learning and leveraging new technologies
+                to solve complex business challenges and drive measurable impact.
               </p>
             </div>
+
           </div>
-          
+
           <div className="space-y-6">
             <Card className="p-6 shadow-soft">
               <div className="flex items-start gap-4">
@@ -49,7 +48,7 @@ const About = () => {
                 </div>
               </div>
             </Card>
-            
+
             <Card className="p-6 shadow-soft">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg">
@@ -61,7 +60,7 @@ const About = () => {
                 </div>
               </div>
             </Card>
-            
+
             <Card className="p-6 shadow-soft">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg">
