@@ -102,6 +102,7 @@ export const profile: Profile = {
   cvPath: "/hanif-faiq-cv.pdf",
   navItems: [
     { label: "About Me", sectionId: "about" },
+    { label: "Metrics", sectionId: "metrics" },
     { label: "Skills", sectionId: "skills" },
     { label: "Experience", sectionId: "experience" },
     { label: "Projects", sectionId: "projects" },

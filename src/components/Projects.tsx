@@ -112,7 +112,7 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                   className="border-white/20 text-black hover:bg-white/10"
                 >
-                  View Details
+                  View Case Study
                 </Button>
 
                 <Button
@@ -134,7 +134,7 @@ const Projects = () => {
       </div>
 
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl bg-background text-foreground">
+        <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto bg-background text-foreground">
           {selectedProject && (
             <>
               <DialogHeader>
@@ -142,38 +142,81 @@ const Projects = () => {
                   {selectedProject.title}
                 </DialogTitle>
               </DialogHeader>
-              <p className="text-sm text-surface-medium mb-3">
+              <p className="text-sm text-surface-medium">
                 {selectedProject.type} • {selectedProject.year}
               </p>
 
               {selectedProject.highlight ? (
-                <p className="mb-4 rounded-lg bg-muted p-3 text-sm font-medium">
+                <p className="rounded-lg bg-muted p-3 text-sm font-medium">
                   {selectedProject.highlight}
                 </p>
               ) : null}
 
-              <p className="mb-4">{selectedProject.description}</p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.categories.map((category) => (
-                  <span
-                    key={category}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full border"
-                  >
-                    {category}
-                  </span>
-                ))}
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border bg-card p-4">
+                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+                    Problem
+                  </h3>
+                  <p className="text-sm leading-relaxed text-surface-medium">
+                    {selectedProject.caseStudy?.problem ?? selectedProject.description}
+                  </p>
+                </div>
+                <div className="rounded-xl border bg-card p-4">
+                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+                    Role
+                  </h3>
+                  <p className="text-sm leading-relaxed text-surface-medium">
+                    {selectedProject.caseStudy?.role ?? "Delivered planning, implementation, and iteration across the project lifecycle."}
+                  </p>
+                </div>
+                <div className="rounded-xl border bg-card p-4 md:col-span-2">
+                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+                    Architecture / Implementation
+                  </h3>
+                  <p className="text-sm leading-relaxed text-surface-medium">
+                    {selectedProject.caseStudy?.implementation ?? selectedProject.description}
+                  </p>
+                </div>
+                <div className="rounded-xl border bg-card p-4 md:col-span-2">
+                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+                    Impact / Result
+                  </h3>
+                  <p className="text-sm leading-relaxed text-surface-medium">
+                    {selectedProject.caseStudy?.impact ?? selectedProject.highlight ?? selectedProject.description}
+                  </p>
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-primary/20 text-primary-foreground text-xs rounded-full border border-primary/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div>
+                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+                  Tech Stack
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {(selectedProject.caseStudy?.techStack ?? selectedProject.tech).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-primary/20 text-primary-foreground text-xs rounded-full border border-primary/30"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+                  Categories
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.categories.map((category) => (
+                    <span
+                      key={category}
+                      className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full border"
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {selectedProject.link ? (
@@ -181,7 +224,7 @@ const Projects = () => {
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-md bg-primary text-primary-foreground"
+                  className="inline-flex w-fit items-center gap-2 rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground"
                 >
                   <ExternalLink size={14} />
                   Visit Project
