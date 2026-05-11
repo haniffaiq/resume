@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import heroImage from "@/assets/hero.jpeg";
+import { profile } from "@/data/profile";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -18,7 +19,7 @@ const Hero = () => {
             <div className="relative animate-scale-in">
               <img
                 src={heroImage}
-                alt="Hanif Faiq - Backend Developer"
+                alt={profile.heroAlt}
                 className="w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover rounded-full shadow-strong"
               />
               {/* Decorative elements */}
@@ -32,24 +33,24 @@ const Hero = () => {
             <div className="space-y-4">
               {/* Main Title */}
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground">
-                Hello I'm <span className="text-primary">Hanif Faiq</span>
+                Hello I'm <span className="text-primary">{profile.name}</span>
               </h1>
 
               {/* Subtitle */}
               <h2 className="text-lg md:text-xl lg:text-2xl text-surface-medium font-medium leading-relaxed">
-                <span className="text-primary font-semibold">Backend Developer</span> |
-                <span className="text-foreground"> DevOps Engineer</span> |
-                <span className="text-foreground"> Data Engineer</span> |
-                <span className="text-foreground"> Frontend Developer</span>
+                {profile.headlineRoles.map((role, index) => (
+                  <span
+                    key={role}
+                    className={index === 0 ? "text-primary font-semibold" : "text-foreground"}
+                  >
+                    {index > 0 ? " | " : ""}{role}
+                  </span>
+                ))}
               </h2>
 
               {/* Extended Greeting Text */}
               <p className="text-sm md:text-base lg:text-lg text-surface-medium leading-relaxed">
-                IT professional with 5+ years of experience in DevOps, backend, and data engineering.
-                Currently a DevOps Engineer at Huawei Indonesia, scaling a WhatsApp bot to 500K+ messages/month
-                and building real-time systems for major telecoms. Previous roles include optimizing AWS infrastructure at Elev8,
-                refactoring 90+ APIs and integrating Zoho CRM at Wine Adore, and delivering IoT-ready Python APIs at Astra Graphia.
-                Skilled in AWS, GCP, Docker, CI/CD, PostgreSQL, and scalable system design driving automation, security, and business impact.
+                {profile.summary}
               </p>
             </div>
 
@@ -57,18 +58,18 @@ const Hero = () => {
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                 <a
-                  href="mailto:haniffaiq95@gmail.com"
+                  href={profile.contact.email.href}
                   className="flex items-center gap-2 text-surface-medium hover:text-foreground transition-colors text-sm"
                 >
                   <Mail size={18} />
-                  <span>haniffaiq95@gmail.com</span>
+                  <span>{profile.contact.email.value}</span>
                 </a>
                 <a
-                  href="tel:087881012700"
+                  href={profile.contact.phone.href}
                   className="flex items-center gap-2 text-surface-medium hover:text-foreground transition-colors text-sm"
                 >
                   <Phone size={18} />
-                  <span>087881012700</span>
+                  <span>{profile.contact.phone.value}</span>
                 </a>
               </div>
 
@@ -86,14 +87,14 @@ const Hero = () => {
                   variant="outline"
                   className="shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-105"
                 >
-                  <a href="/hanif-faiq-cv.pdf" download>
+                  <a href={profile.cvPath} download>
                     <Download size={18} />
                     Download CV
                   </a>
                 </Button>
                 <div className="flex items-center gap-3">
                   <a
-                    href="https://www.linkedin.com/in/haniffaiq13/"
+                    href={profile.socials.linkedin.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-full border border-border hover:bg-secondary hover:scale-110 transition-all duration-300"
@@ -101,7 +102,7 @@ const Hero = () => {
                     <Linkedin size={20} />
                   </a>
                   <a
-                    href="https://github.com/haniffaiq"
+                    href={profile.socials.github.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-full border border-border hover:bg-secondary hover:scale-110 transition-all duration-300"
