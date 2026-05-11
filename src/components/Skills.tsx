@@ -10,57 +10,27 @@ import {
   BarChart,
   Bot,
   Network,
-  Layout
+  Layout,
+  type LucideIcon,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { skills, type SkillIconKey } from "@/data/skills";
+
+const skillIcons: Record<SkillIconKey, LucideIcon> = {
+  barChart: BarChart,
+  bot: Bot,
+  cloud: Cloud,
+  code: Code,
+  cpu: Cpu,
+  database: Database,
+  fileCode: FileCode,
+  layout: Layout,
+  network: Network,
+  server: Server,
+  terminal: Terminal,
+};
 
 const Skills = () => {
-  const skills = [
-    // Backend
-    { name: "Python", icon: FileCode, category: "Backend", level: "Expert" },
-    { name: "Node.js", icon: Server, category: "Backend", level: "Advanced" },
-    { name: "Express.js", icon: Server, category: "Backend", level: "Advanced" },
-    { name: "REST API", icon: Code, category: "Backend", level: "Expert" },
-    { name: "Microservices", icon: Network, category: "Backend", level: "Advanced" },
-
-    // Frontend
-    { name: "React", icon: Layout, category: "Frontend", level: "Intermediate" },
-    { name: "TailwindCSS", icon: Code, category: "Frontend", level: "Intermediate" },
-    { name: "Bootstrap", icon: Code, category: "Frontend", level: "Intermediate" },
-    { name: "HTML/CSS", icon: Code, category: "Frontend", level: "Intermediate" },
-
-    // DevOps
-    { name: "Docker", icon: Cpu, category: "DevOps", level: "Expert" },
-    { name: "Podman", icon: Cpu, category: "DevOps", level: "Advanced" },
-    { name: "CI/CD", icon: Terminal, category: "DevOps", level: "Advanced" },
-    { name: "Nginx", icon: Server, category: "DevOps", level: "Advanced" },
-    { name: "Monitoring", icon: BarChart, category: "DevOps", level: "Advanced" },
-    { name: "Linux", icon: Terminal, category: "DevOps", level: "Advanced" },
-    { name: "Bash", icon: Terminal, category: "DevOps", level: "Advanced" },
-
-    // Cloud
-    { name: "AWS", icon: Cloud, category: "Cloud", level: "Advanced" },
-    { name: "GCP", icon: Cloud, category: "Cloud", level: "Advanced" },
-    { name: "Azure", icon: Cloud, category: "Cloud", level: "Intermediate" },
-
-    // Data
-    { name: "PostgreSQL", icon: Database, category: "Data", level: "Expert" },
-    { name: "MySQL", icon: Database, category: "Data", level: "Advanced" },
-    { name: "MongoDB", icon: Database, category: "Data", level: "Intermediate" },
-    { name: "SQL", icon: Database, category: "Data", level: "Advanced" },
-    { name: "CDC / ETL", icon: Database, category: "Data", level: "Advanced" },
-    { name: "BigQuery", icon: Database, category: "Data", level: "Advanced" },
-    { name: "Looker", icon: BarChart, category: "Data", level: "Intermediate" },
-    { name: "Excel", icon: BarChart, category: "Data", level: "Intermediate" },
-    { name: "Redis", icon: Database, category: "Data", level: "Intermediate" },
-
-    // Automation
-    { name: "Telegram Bot", icon: Bot, category: "Automation", level: "Advanced" },
-    { name: "WhatsApp Bot", icon: Bot, category: "Automation", level: "Advanced" },
-    { name: "IoT", icon: Bot, category: "Automation", level: "Intermediate" },
-  ];
-
-
   // Group skills by category
   const grouped = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) acc[skill.category] = [];
@@ -84,10 +54,10 @@ const Skills = () => {
               <h3 className="text-xl font-semibold mb-4">{category}</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {items.map((skill, index) => {
-                  const Icon = skill.icon;
+                  const Icon = skillIcons[skill.icon];
                   return (
                     <div
-                      key={index}
+                      key={`${skill.name}-${index}`}
                       className="flex items-center space-x-2 bg-muted/40 rounded-md p-2 hover:bg-muted transition-colors"
                     >
                       <Icon size={18} className="text-primary" />
