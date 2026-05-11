@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import heroImage from "@/assets/hero.jpeg";
 import { profile } from "@/data/profile";
 
@@ -80,17 +80,6 @@ const Hero = () => {
                   className="shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-105"
                 >
                   Get In Touch
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-105"
-                >
-                  <a href={profile.cvPath} download>
-                    <Download size={18} />
-                    Download CV
-                  </a>
                 </Button>
                 <div className="flex items-center gap-3">
                   <a
