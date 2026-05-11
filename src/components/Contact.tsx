@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { profile } from "@/data/profile";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
@@ -77,12 +78,12 @@ const Contact = () => {
                     <Mail className="text-primary" size={20} />
                   </div>
                   <div>
-                    <p className="font-semibold">Email</p>
+                    <p className="font-semibold">{profile.contact.email.label}</p>
                     <a 
-                      href="mailto:haniffaiq95@gmail.com"
+                      href={profile.contact.email.href}
                       className="text-surface-medium hover:text-primary transition-colors"
                     >
-                      haniffaiq95@gmail.com
+                      {profile.contact.email.value}
                     </a>
                   </div>
                 </div>
@@ -91,12 +92,12 @@ const Contact = () => {
                     <Phone className="text-primary" size={20} />
                   </div>
                   <div>
-                    <p className="font-semibold">Phone</p>
+                    <p className="font-semibold">{profile.contact.phone.label}</p>
                     <a 
-                      href="tel:087881012700"
+                      href={profile.contact.phone.href}
                       className="text-surface-medium hover:text-primary transition-colors"
                     >
-                      087881012700
+                      {profile.contact.phone.value}
                     </a>
                   </div>
                 </div>
@@ -106,7 +107,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold">Location</p>
-                    <p className="text-surface-medium">Jakarta, Indonesia</p>
+                    <p className="text-surface-medium">{profile.contact.location}</p>
                   </div>
                 </div>
               </div>
@@ -116,7 +117,7 @@ const Contact = () => {
               <h4 className="font-semibold mb-4">Follow me on</h4>
               <div className="flex items-center gap-4">
                 <a 
-                  href="https://www.linkedin.com/in/haniffaiq13/"
+                  href={profile.socials.linkedin.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -124,7 +125,7 @@ const Contact = () => {
                   <Linkedin size={20} />
                 </a>
                 <a 
-                  href="https://github.com/haniffaiq"
+                  href={profile.socials.github.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-colors"
