@@ -40,3 +40,20 @@ git clone https://github.com/haniffaiq/resume.git
 cd resume
 npm install
 npm run dev
+```
+
+---
+
+## 📄 CV source and PDF
+
+The downloadable CV PDF is generated from an editable source file:
+
+- Source: `docs/hanif-faiq-cv.md`
+- Generated asset: `public/hanif-faiq-cv.pdf`
+- Generator: `scripts/generate-cv-pdf.py`
+
+Regenerate the public PDF after editing the source:
+
+```bash
+npm run generate:cv
+```
