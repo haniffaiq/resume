@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import heroImage from "@/assets/hero.jpeg";
 
 const Hero = () => {
@@ -79,6 +79,17 @@ const Hero = () => {
                   className="shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-105"
                 >
                   Get In Touch
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-105"
+                >
+                  <a href="/hanif-faiq-cv.pdf" download>
+                    <Download size={18} />
+                    Download CV
+                  </a>
                 </Button>
                 <div className="flex items-center gap-3">
                   <a

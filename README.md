@@ -6,7 +6,7 @@ Built with modern web technologies and designed for speed, scalability, and main
 ---
 
 ## 🌐 Live Demo
-👉 [Visit Portfolio](https://your-domain.com)
+👉 [Visit Portfolio](https://haniffaiq.com)
 
 ---
 
