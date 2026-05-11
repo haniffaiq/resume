@@ -50,6 +50,12 @@ const Header = () => {
             >
               Projects
             </button>
+            <button
+              onClick={() => scrollToSection("organisations")}
+              className="text-foreground hover:text-surface-medium transition-colors"
+            >
+              Organizations
+            </button>
             <Button
               onClick={() => scrollToSection("contact")}
               variant="default"
@@ -93,6 +99,12 @@ const Header = () => {
               className="text-foreground hover:text-primary"
             >
               Projects
+            </button>
+            <button
+              onClick={() => scrollToSection("organisations")}
+              className="text-foreground hover:text-primary"
+            >
+              Organizations
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
