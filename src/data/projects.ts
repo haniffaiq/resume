@@ -35,6 +35,78 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "13",
+    title: "POS.ThankYouBro.id - Multi-tenant POS & Inventory SaaS",
+    description:
+      "Built a multi-tenant point-of-sale and inventory platform for Indonesian wholesale (grosir) businesses, with multi-outlet transactions, role-based access, real-time sales dashboards, audit trails, and tiered pricing.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Multi-tenant", "REST API", "Nginx"],
+    year: "2026",
+    type: "SaaS Platform",
+    categories: ["Frontend", "Backend", "DevOps", "Data", "Automation"],
+    link: "https://pos.thankyoubro.id",
+    featured: true,
+    highlight: "Multi-tenant SaaS spanning POS, inventory, reporting, and access control across outlets.",
+    caseStudy: {
+      problem:
+        "Wholesale SMEs needed a single system to run multi-outlet sales, track inventory in real time, and control who can do what — without enterprise pricing.",
+      role:
+        "Owned product, architecture, and delivery: multi-tenant data model, POS flow, dashboards, role-based access, and billing tiers.",
+      techStack: ["Next.js", "TypeScript", "PostgreSQL", "Multi-tenant", "REST API", "Nginx"],
+      implementation:
+        "Delivered tenant-isolated POS transactions, multi-outlet inventory, sales/margin dashboards, role-based access (owner/manager/cashier), audit trails, CSV/Excel export, and a REST API on the Business tier.",
+      impact:
+        "Gave wholesale businesses an affordable freemium SaaS with the operational controls usually reserved for enterprise systems.",
+    },
+  },
+  {
+    id: "12",
+    title: "Photobox.ThankYouBro.id - Photo Booth Operations Platform",
+    description:
+      "Built a React SPA for photo booth services with a split admin / marketing / platform architecture, supporting customer-facing flows and internal operations from a single deployment.",
+    tech: ["React.js", "Vite", "TypeScript", "Tailwind CSS", "Nginx"],
+    year: "2026",
+    type: "Web Platform",
+    categories: ["Frontend", "DevOps"],
+    link: "https://photobox.thankyoubro.id",
+    featured: true,
+    highlight: "Single-bundle SPA split into admin, marketing, and platform surfaces for one product domain.",
+    caseStudy: {
+      problem:
+        "Photo booth operations needed both a public marketing surface and an internal admin/platform tooling, without running three separate apps.",
+      role:
+        "Designed and built the frontend architecture, code-split entry points, and deployment setup.",
+      techStack: ["React.js", "Vite", "TypeScript", "Tailwind CSS", "Nginx"],
+      implementation:
+        "Split the SPA into admin, marketing, and platform module chunks served from one Vite build behind Nginx, with shared design system and routing.",
+      impact:
+        "Reduced operational overhead by serving customer marketing and internal tooling from one codebase and one deployment.",
+    },
+  },
+  {
+    id: "11",
+    title: "PeTag.id - QR-based Lost Pet Recovery Platform",
+    description:
+      "Built a QR pet-ID platform that lets owners register pets, generate printable QR collar tags, control contact privacy, and track pet genealogy — helping reunite lost pets with owners in Indonesia.",
+    tech: ["Next.js", "TypeScript", "QR Code", "PostgreSQL", "Nginx"],
+    year: "2026",
+    type: "Web Platform",
+    categories: ["Frontend", "Backend", "Automation"],
+    link: "https://petag.id",
+    featured: true,
+    highlight: "Consumer product with QR-driven recovery flow, privacy controls, and prerendered Next.js pages.",
+    caseStudy: {
+      problem:
+        "Indonesian pet owners had no simple, free way to make a lost pet contactable through a scan, without exposing personal info publicly.",
+      role:
+        "Owned product and full-stack delivery: pet registration, QR generation, privacy modes, genealogy data model, and prerendered marketing pages.",
+      techStack: ["Next.js", "TypeScript", "QR Code", "PostgreSQL", "Nginx"],
+      implementation:
+        "Implemented QR tag generation per pet, three privacy modes (public / contact-only / private), email verification, lineage tracking, and Next.js ISR for fast public pages.",
+      impact:
+        "Turned a printable QR collar tag into a free recovery channel for Indonesian pet owners, with owner-controlled privacy.",
+    },
+  },
+  {
     id: "10",
     title: "BaliBersih.com - On-demand Cleaning Service Platform",
     description:
