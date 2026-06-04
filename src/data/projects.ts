@@ -1,5 +1,6 @@
 export const projectCategories = [
   "All",
+  "AI",
   "DevOps",
   "Backend",
   "Data",
@@ -34,6 +35,30 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "14",
+    title: "Vox.Manibo.ai - AI Sales Chat Agent Widget",
+    description:
+      "Built an embeddable AI chat agent for sales, delivered as a drop-in JavaScript widget any website can install with a single script tag. Visitors get an always-on sales assistant that qualifies leads, answers product questions, and drives conversion.",
+    tech: ["TypeScript", "Preact", "LLM", "REST API", "Nginx", "Embeddable Widget"],
+    year: "2026",
+    type: "AI Agent Platform",
+    categories: ["AI", "Frontend", "Backend", "Automation", "Data"],
+    link: "https://vox.manibo.ai",
+    featured: true,
+    highlight: "Single-tag embeddable AI sales agent that any site can install to qualify leads 24/7.",
+    caseStudy: {
+      problem:
+        "Businesses lose sales leads outside working hours and can't staff live chat around the clock, while generic chatbots fail to answer real product questions.",
+      role:
+        "Owned product and full-stack delivery: the embeddable widget loader, configurable UI, chat API, and LLM-backed sales agent behavior.",
+      techStack: ["TypeScript", "Preact", "LLM", "REST API", "Nginx", "Embeddable Widget"],
+      implementation:
+        "Shipped a self-contained widget.js loader configurable via data attributes (color, position, greeting, API base), a /api/chat backend, and an LLM agent tuned for sales conversations — installable on any host with one script tag.",
+      impact:
+        "Gave clients a 24/7 AI sales rep embeddable in minutes, capturing and qualifying leads without adding headcount.",
+    },
+  },
   {
     id: "13",
     title: "POS.ThankYouBro.id - Multi-tenant POS & Inventory SaaS",
@@ -229,7 +254,7 @@ export const projects: Project[] = [
     tech: ["Python", "SVM", "ANN", "EEG", "Machine Learning"],
     year: "2023",
     type: "Machine Learning",
-    categories: ["Data", "Automation"],
+    categories: ["AI", "Data", "Automation"],
     caseStudy: {
       problem:
         "EEG datasets required preprocessing and model experimentation to classify brain-signal patterns accurately.",

@@ -57,8 +57,12 @@ const Projects = () => {
           })}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {filteredProjects.map((project) => {
+            const [projectName, ...subtitleParts] = project.title.split(" - ");
+            const projectSubtitle = subtitleParts.join(" - ");
+
+            return (
             <Card
               key={project.id}
               className={`bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border transition-colors flex flex-col hover:bg-white/10 ${
@@ -66,34 +70,41 @@ const Projects = () => {
               }`}
             >
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex items-center justify-between gap-3 mb-5">
                   <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">
                     {project.type}
                   </span>
-                  <span className="text-gray-400 text-xs whitespace-nowrap">{project.year}</span>
+                  <div className="flex items-center gap-2 whitespace-nowrap">
+                    {project.featured ? (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/20 px-2.5 py-1 text-xs font-medium text-primary-foreground">
+                        <Star size={11} aria-hidden="true" />
+                        Featured
+                      </span>
+                    ) : null}
+                    <span className="text-gray-400 text-xs">{project.year}</span>
+                  </div>
                 </div>
 
-                {project.featured ? (
-                  <div className="mb-3 inline-flex w-fit items-center gap-1 rounded-full border border-primary/40 bg-primary/20 px-3 py-1 text-xs font-medium text-primary-foreground">
-                    <Star size={12} aria-hidden="true" />
-                    Featured
-                  </div>
-                ) : null}
+                <div className="mb-3 min-h-[3.75rem]">
+                  <h3 className="text-lg font-bold leading-snug text-white">{projectName}</h3>
+                  {projectSubtitle ? (
+                    <p className="mt-1 text-sm font-medium leading-snug text-primary-foreground/70">
+                      {projectSubtitle}
+                    </p>
+                  ) : null}
+                </div>
 
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-300 text-sm flex-1">
-                  {project.description.length > 170
-                    ? project.description.slice(0, 170) + "..."
-                    : project.description}
+                <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
+                  {project.description}
                 </p>
 
                 {project.highlight ? (
-                  <p className="mt-4 rounded-lg border border-white/10 bg-white/5 p-3 text-xs text-gray-200">
+                  <p className="mt-4 rounded-lg border border-white/10 bg-white/5 p-3 text-xs leading-relaxed text-gray-200">
                     {project.highlight}
                   </p>
                 ) : null}
 
-                <div className="flex flex-wrap gap-2 mt-4">
+                <div className="flex flex-wrap gap-2 mt-auto pt-5">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
@@ -129,7 +140,8 @@ const Projects = () => {
                 </Button>
               </div>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
 
