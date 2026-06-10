@@ -30,6 +30,7 @@ export type Profile = {
   education: EducationItem[];
   location: string;
   experienceSummary: string[];
+  availability: string;
   contact: {
     email: ContactLink;
     phone: ContactLink;
@@ -48,13 +49,14 @@ export const profile: Profile = {
   logoAlt: "Hanif Faiq Logo",
   heroAlt: "Hanif Faiq - Backend Developer",
   headlineRoles: [
+    "AI / Product Builder",
     "Backend Developer",
     "DevOps Engineer",
     "Data Engineer",
     "Frontend Developer",
   ],
   summary:
-    "IT professional with 5+ years of experience in DevOps, backend, and data engineering. Currently a DevOps Engineer at Huawei Indonesia, scaling a WhatsApp bot to 500K+ messages/month and building real-time systems for major telecoms. Previous roles include optimizing AWS infrastructure at Elev8, refactoring 90+ APIs and integrating Zoho CRM at Wine Adore, and delivering IoT-ready Python APIs at Astra Graphia. Skilled in AWS, GCP, Docker, CI/CD, PostgreSQL, and scalable system design driving automation, security, and business impact.",
+    "IT professional with 5+ years of experience in DevOps, backend, and data engineering. Currently a DevOps Engineer at Huawei Indonesia, scaling a WhatsApp bot to 500K+ messages/month and building real-time systems for major telecoms. In 2026 shipped full-stack and AI-powered SaaS products end to end—a multi-tenant POS, an embeddable AI sales agent, and consumer web platforms—covering product, backend, frontend, and deployment. Previous roles include optimizing AWS infrastructure at Elev8, refactoring 90+ APIs and integrating Zoho CRM at Wine Adore, and delivering IoT-ready Python APIs at Astra Graphia. Skilled in AWS, GCP, Docker, CI/CD, PostgreSQL, and scalable system design driving automation, security, and business impact.",
   aboutParagraphs: [
     "IT professional with 5+ years of experience across DevOps, backend, and data engineering. Skilled in building and scaling systems using AWS, GCP, Docker, CI/CD, Python, and PostgreSQL.",
     "Proven track record of delivering enterprise-grade solutions: scaling a WhatsApp bot to 500K+ messages/month at Huawei, optimizing AWS infrastructure and zero-downtime deployments at Elev8, and refactoring 90+ APIs while integrating Zoho CRM with GCP at Wine Adore. Experienced in IoT-ready APIs, data pipelines, and real-time monitoring systems.",
@@ -76,11 +78,12 @@ export const profile: Profile = {
     "5+ years in software development",
     "Currently DevOps at Huawei Indonesia",
   ],
+  availability: "Open to DevOps / Backend / Full-stack roles & freelance projects",
   contact: {
     email: {
       label: "Email",
-      value: "haniffaiq95@gmail.com",
-      href: "mailto:haniffaiq95@gmail.com",
+      value: "hanif@jakitlabs.com",
+      href: "mailto:hanif@jakitlabs.com",
     },
     phone: {
       label: "Phone",

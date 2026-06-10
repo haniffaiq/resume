@@ -31,6 +31,8 @@ export const skills: Skill[] = [
   { name: "TailwindCSS", icon: "code", category: "Frontend", level: "Intermediate" },
   { name: "Bootstrap", icon: "code", category: "Frontend", level: "Intermediate" },
   { name: "HTML/CSS", icon: "code", category: "Frontend", level: "Intermediate" },
+  { name: "WordPress", icon: "layout", category: "Frontend", level: "Advanced" },
+  { name: "PHP", icon: "fileCode", category: "Frontend", level: "Intermediate" },
 
   // DevOps
   { name: "Docker", icon: "cpu", category: "DevOps", level: "Expert" },

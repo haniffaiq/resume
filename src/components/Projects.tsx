@@ -75,6 +75,12 @@ const Projects = () => {
                     {project.type}
                   </span>
                   <div className="flex items-center gap-2 whitespace-nowrap">
+                    {project.link ? (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-green-400/40 bg-green-400/15 px-2.5 py-1 text-xs font-medium text-green-300">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+                        Live
+                      </span>
+                    ) : null}
                     {project.featured ? (
                       <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/20 px-2.5 py-1 text-xs font-medium text-primary-foreground">
                         <Star size={11} aria-hidden="true" />

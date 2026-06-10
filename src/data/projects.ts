@@ -36,6 +36,54 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "16",
+    title: "BH-Labs.com - B2B Wellness Recovery Pod Platform",
+    description:
+      "Built and deployed the marketing and lead-generation site for BH Labs, a B2B company selling turnkey 'Recovery Pod' systems that bundle six clinical-grade recovery modalities (HBOT, red light, infrared sauna, PEMF, compression, lymphatic) into a plug-and-play install for hotels, gyms, universities, and residences.",
+    tech: ["WordPress", "PHP", "Elementor", "SEO", "Nginx"],
+    year: "2026",
+    type: "Marketing & Lead-Gen Site",
+    categories: ["Frontend", "DevOps", "Automation"],
+    link: "https://bh-labs.com",
+    featured: true,
+    highlight: "Conversion-focused WordPress site selling turnkey wellness infrastructure across four B2B verticals.",
+    caseStudy: {
+      problem:
+        "A wellness-infrastructure company needed a credible, conversion-focused web presence to pitch turnkey Recovery Pod systems to hotels, athletic programs, fitness clubs, and residential properties.",
+      role:
+        "Built and delivered the full WordPress site: information architecture, vertical-specific landing pages, lead capture, and deployment.",
+      techStack: ["WordPress", "PHP", "Elementor", "SEO", "Nginx"],
+      implementation:
+        "Structured vertical landing pages (hotels, universities, gyms, residential), modality explainers, ROI/value messaging, lead-capture forms, and SEO-oriented content on a WordPress build served behind Nginx.",
+      impact:
+        "Gave BH Labs a B2B sales surface that frames six recovery modalities as one plug-and-play revenue product and routes qualified leads across four verticals.",
+    },
+  },
+  {
+    id: "15",
+    title: "TheBioHackLab.com - Biohacking & Recovery Studio Site",
+    description:
+      "Built the web presence for The Biohack Lab, a consumer-facing biohacking and recovery wellness brand, presenting recovery services and modalities with a booking/enquiry path on a WordPress stack.",
+    tech: ["WordPress", "PHP", "Elementor", "SEO", "Nginx"],
+    year: "2026",
+    type: "Marketing & Booking Site",
+    categories: ["Frontend", "DevOps"],
+    link: "https://thebiohacklab.com",
+    featured: true,
+    highlight: "Consumer biohacking & recovery brand site with service presentation and enquiry flow on WordPress.",
+    caseStudy: {
+      problem:
+        "A consumer biohacking and recovery studio needed an on-brand site to present its modalities and convert visitors into bookings/enquiries.",
+      role:
+        "Designed and built the WordPress site, service/modality pages, and conversion path.",
+      techStack: ["WordPress", "PHP", "Elementor", "SEO", "Nginx"],
+      implementation:
+        "Delivered branded service pages, recovery-modality content, responsive layout, SEO structure, and an enquiry/booking conversion path on a WordPress build behind Nginx.",
+      impact:
+        "Gave the studio a polished consumer-facing surface that communicates its recovery offering and drives booking enquiries.",
+    },
+  },
+  {
     id: "14",
     title: "Vox.Manibo.ai - AI Sales Chat Agent Widget",
     description:
@@ -56,7 +104,7 @@ export const projects: Project[] = [
       implementation:
         "Shipped a self-contained widget.js loader configurable via data attributes (color, position, greeting, API base), a /api/chat backend, and an LLM agent tuned for sales conversations — installable on any host with one script tag.",
       impact:
-        "Gave clients a 24/7 AI sales rep embeddable in minutes, capturing and qualifying leads without adding headcount.",
+        "A single script-tag install drops a 24/7 LLM sales agent onto any site, configured entirely through data attributes (color, position, greeting, API base) and qualifying leads round the clock without added headcount.",
     },
   },
   {
@@ -80,7 +128,7 @@ export const projects: Project[] = [
       implementation:
         "Delivered tenant-isolated POS transactions, multi-outlet inventory, sales/margin dashboards, role-based access (owner/manager/cashier), audit trails, CSV/Excel export, and a REST API on the Business tier.",
       impact:
-        "Gave wholesale businesses an affordable freemium SaaS with the operational controls usually reserved for enterprise systems.",
+        "A freemium, multi-tenant SaaS giving wholesale SMEs enterprise-grade controls: role-based access across owner/manager/cashier, multi-outlet operations, audit trails, CSV/Excel export, and a REST API on the Business tier.",
     },
   },
   {
@@ -94,7 +142,7 @@ export const projects: Project[] = [
     categories: ["Frontend", "DevOps"],
     link: "https://photobox.thankyoubro.id",
     featured: true,
-    highlight: "Single-bundle SPA split into admin, marketing, and platform surfaces for one product domain.",
+    highlight: "One Vite build and one deployment serving admin, marketing, and platform surfaces from a single codebase.",
     caseStudy: {
       problem:
         "Photo booth operations needed both a public marketing surface and an internal admin/platform tooling, without running three separate apps.",
@@ -104,7 +152,7 @@ export const projects: Project[] = [
       implementation:
         "Split the SPA into admin, marketing, and platform module chunks served from one Vite build behind Nginx, with shared design system and routing.",
       impact:
-        "Reduced operational overhead by serving customer marketing and internal tooling from one codebase and one deployment.",
+        "One Vite build and one deployment serve all three surfaces — admin, marketing, and platform — from a single codebase and shared design system, cutting operational overhead versus running separate apps.",
     },
   },
   {
@@ -128,7 +176,7 @@ export const projects: Project[] = [
       implementation:
         "Implemented QR tag generation per pet, three privacy modes (public / contact-only / private), email verification, lineage tracking, and Next.js ISR for fast public pages.",
       impact:
-        "Turned a printable QR collar tag into a free recovery channel for Indonesian pet owners, with owner-controlled privacy.",
+        "Turns a printable QR collar tag into a free recovery channel with owner-controlled privacy — three privacy modes (public / contact-only / private), email verification, and lineage tracking — so a scan reaches the owner without exposing personal info publicly.",
     },
   },
   {

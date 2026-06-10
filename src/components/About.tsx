@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Hammer } from "lucide-react";
 import { profile } from "@/data/profile";
 
 const About = () => {
@@ -67,6 +67,20 @@ const About = () => {
                   {profile.experienceSummary.map((item) => (
                     <p key={item} className="text-surface-medium">{item}</p>
                   ))}
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 shadow-soft">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg">
+                  <Hammer className="text-primary" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Currently Building</h3>
+                  <p className="text-surface-medium">
+                    Shipping full-stack &amp; AI SaaS — Vox AI sales agent, multi-tenant POS, PeTag, Photobox (2026).
+                  </p>
                 </div>
               </div>
             </Card>

@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Activity, BarChart3, Bot, Network, ShieldCheck } from "lucide-react";
+import { Activity, BarChart3, Bot, Network, Rocket, ShieldCheck, Sparkles } from "lucide-react";
 
 const metrics = [
   {
@@ -32,6 +32,18 @@ const metrics = [
     context: "DevOps, backend, data engineering, IoT, and automation delivery.",
     icon: ShieldCheck,
   },
+  {
+    value: "4+",
+    label: "SaaS products shipped",
+    context: "Designed, built, and deployed full-stack SaaS & AI products end to end in 2026.",
+    icon: Rocket,
+  },
+  {
+    value: "24/7",
+    label: "AI sales agent",
+    context: "Embeddable LLM sales agent qualifying leads round the clock.",
+    icon: Sparkles,
+  },
 ];
 
 const AchievementMetrics = () => {
@@ -49,7 +61,7 @@ const AchievementMetrics = () => {
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {metrics.map((metric) => {
             const Icon = metric.icon;
 

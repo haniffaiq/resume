@@ -1,9 +1,18 @@
 # HANIF FAIQ
 
-087881012700 | haniffaiq95@gmail.com | https://www.linkedin.com/in/haniffaiq13/
+087881012700 | haniffaiq95@gmail.com | https://haniffaiq.com | https://www.linkedin.com/in/haniffaiq13/
 Jakarta, Indonesia
 
-IT professional with 5+ years of experience across DevOps, backend engineering, automation, and data systems. I build reliable cloud and application platforms using AWS, GCP, Docker, CI/CD, Python, PostgreSQL, and monitoring stacks, with recent work scaling WhatsApp automation to 500K+ messages/month and delivering real-time telecom incident detection.
+IT professional with 5+ years of experience across DevOps, backend engineering, automation, and data systems. I build reliable cloud and application platforms using AWS, GCP, Docker, CI/CD, Python, PostgreSQL, and monitoring stacks, with recent work scaling WhatsApp automation to 500K+ messages/month and delivering real-time telecom incident detection. Recently shipping full-stack and AI-powered SaaS products end to end — multi-tenant POS, an embeddable AI sales agent, and consumer web platforms — covering product, backend, frontend, and deployment.
+
+## Technical Skills
+
+- Backend: Python, Node.js, Express.js, REST API, Microservices
+- Frontend: React, TailwindCSS, Bootstrap, HTML/CSS, WordPress, PHP
+- DevOps: Docker, Podman, CI/CD, Nginx, Monitoring (Prometheus/Grafana), Linux, Bash
+- Cloud: AWS, GCP, Azure
+- Data: PostgreSQL, MySQL, MongoDB, SQL, CDC / ETL, BigQuery, Looker, Redis
+- Automation & AI: Telegram Bot, WhatsApp Bot, LLM agents, IoT
 
 ## Work Experiences
 
@@ -120,6 +129,30 @@ IT professional with 5+ years of experience across DevOps, backend engineering, 
 - Fostered a collaborative and innovative environment within the club.
 
 ## Projects
+
+### BH-Labs.com - B2B Wellness Recovery Pod Platform (2026)
+
+Built and deployed the marketing and lead-generation site for BH Labs, a B2B company selling turnkey "Recovery Pod" systems that bundle six clinical-grade recovery modalities (HBOT, red light, infrared sauna, PEMF, compression, lymphatic) into a plug-and-play install. Delivered vertical-specific landing pages (hotels, universities, gyms, residential), modality explainers, lead-capture forms, and SEO-oriented content on a WordPress build behind Nginx. Tech: WordPress, PHP, Elementor, SEO, Nginx. Link: https://bh-labs.com
+
+### TheBioHackLab.com - Biohacking & Recovery Studio Site (2026)
+
+Built the web presence for The Biohack Lab, a consumer-facing biohacking and recovery wellness brand. Delivered branded service/modality pages, responsive layout, SEO structure, and an enquiry/booking conversion path on a WordPress build behind Nginx. Tech: WordPress, PHP, Elementor, SEO, Nginx. Link: https://thebiohacklab.com
+
+### Vox.Manibo.ai - AI Sales Chat Agent Widget (2026)
+
+Built an embeddable AI sales chat agent delivered as a drop-in JavaScript widget any website installs with a single script tag. Shipped a self-contained widget.js loader configurable via data attributes (color, position, greeting, API base), a /api/chat backend, and an LLM agent tuned for sales conversations that qualifies leads and answers product questions 24/7. Tech: TypeScript, Preact, LLM, REST API, Nginx. Link: https://vox.manibo.ai
+
+### POS.ThankYouBro.id - Multi-tenant POS & Inventory SaaS (2026)
+
+Built a multi-tenant point-of-sale and inventory platform for Indonesian wholesale (grosir) businesses, with tenant-isolated transactions, multi-outlet inventory, sales/margin dashboards, role-based access (owner/manager/cashier), audit trails, CSV/Excel export, a REST API on the Business tier, and freemium pricing. Tech: Next.js, TypeScript, PostgreSQL, Nginx. Link: https://pos.thankyoubro.id
+
+### Photobox.ThankYouBro.id - Photo Booth Operations Platform (2026)
+
+Built a React SPA for photo booth services split into admin, marketing, and platform module chunks served from one Vite build behind Nginx, with shared design system and routing — serving customer-facing flows and internal operations from a single deployment. Tech: React.js, Vite, TypeScript, Tailwind CSS, Nginx. Link: https://photobox.thankyoubro.id
+
+### PeTag.id - QR-based Lost Pet Recovery Platform (2026)
+
+Built a QR pet-ID platform that lets owners register pets, generate printable QR collar tags, control contact privacy (public / contact-only / private), verify by email, and track pet genealogy. Used Next.js ISR for fast prerendered public pages so a scanned tag becomes a free recovery channel without exposing personal info. Tech: Next.js, TypeScript, QR Code, PostgreSQL, Nginx. Link: https://petag.id
 
 ### Huawei WhatsApp Bot Rebuild and Down Detector System (2025)
 

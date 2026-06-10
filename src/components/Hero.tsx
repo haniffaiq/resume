@@ -31,6 +31,14 @@ const Hero = () => {
           {/* Content Section - Takes 3 cols */}
           <div className="lg:col-span-3 space-y-6 order-2 lg:order-2 animate-fade-in text-center lg:text-left">
             <div className="space-y-4">
+              {/* Availability Badge */}
+              <div className="flex justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                  <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span><span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span></span>
+                  {profile.availability}
+                </div>
+              </div>
+
               {/* Main Title */}
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground">
                 Hello I'm <span className="text-primary">{profile.name}</span>
