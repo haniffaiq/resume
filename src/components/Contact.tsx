@@ -2,11 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { profile } from "@/data/profile";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+const isEmailJsConfigured = Boolean(
+  EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY
+);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,33 +23,46 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSending) return;
 
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(() => {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
-        });
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      })
-      .catch((err) => {
-        toast({
-          title: "Error",
-          description: "Failed to send message. Please try again later.",
-          variant: "destructive",
-        });
-        console.error("EmailJS Error:", err);
+    if (!isEmailJsConfigured) {
+      toast({
+        title: "Contact form unavailable",
+        description: `Please email me directly at ${profile.contact.email.value}.`,
+        variant: "destructive",
       });
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formData,
+        EMAILJS_PUBLIC_KEY
+      );
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      toast({
+        title: "Error",
+        description: `Failed to send message. Please email me at ${profile.contact.email.value}.`,
+        variant: "destructive",
+      });
+      console.error("EmailJS Error:", err);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (
@@ -150,6 +171,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your name"
+                    disabled={isSending}
                     required
                   />
                 </div>
@@ -164,6 +186,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
+                    disabled={isSending}
                     required
                   />
                 </div>
@@ -178,6 +201,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="What's this about?"
+                    disabled={isSending}
                     required
                   />
               </div>
@@ -192,11 +216,24 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Tell me about your project..."
                   rows={5}
+                  disabled={isSending}
                   required
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send Message
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={isSending}
+              >
+                {isSending ? (
+                  <>
+                    <Loader2 size={18} className="mr-2 animate-spin" aria-hidden="true" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </Button>
             </form>
           </Card>

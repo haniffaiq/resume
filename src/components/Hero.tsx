@@ -2,11 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import heroImage from "@/assets/hero.jpeg";
 import { profile } from "@/data/profile";
+import { prefersReducedMotion } from "@/lib/utils";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" });
   };
 
   return (
@@ -20,6 +21,12 @@ const Hero = () => {
               <img
                 src={heroImage}
                 alt={profile.heroAlt}
+                width={640}
+                height={640}
+                decoding="async"
+                // React 18 does not map camelCase fetchPriority to the DOM
+                // attribute; pass the lowercase name browsers actually read.
+                {...{ fetchpriority: "high" }}
                 className="w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover rounded-full shadow-strong"
               />
               {/* Decorative elements */}

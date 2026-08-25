@@ -29,6 +29,8 @@ export type Project = {
   type: string;
   categories: ProjectFilter[];
   link?: string;
+  /** Project shipped but the public site is no longer reachable (contract/partnership ended). */
+  archived?: boolean;
   featured?: boolean;
   highlight?: string;
   caseStudy?: ProjectCaseStudy;
@@ -36,8 +38,33 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "17",
+    title: "entuen.com - Integrated Smart Ecosystem Company Platform",
+    description:
+      "Built and shipped the corporate platform for PT Entuen Cogfinity Indonesia, an ICT company delivering an integrated smart ecosystem across QR, NFC, IoT, AI, and telco. The site presents the full upstream-to-downstream value chain, the client portfolio (PeTag.id, Komodo.site, Ontelmo, ICA), and the B2B/B2G/B2C engagement model in a bilingual EN/ID experience.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n", "Nginx", "Docker"],
+    year: "2026",
+    type: "Corporate Platform",
+    categories: ["Frontend", "DevOps", "AI", "IoT"],
+    link: "https://entuen.com",
+    featured: true,
+    highlight:
+      "Bilingual Next.js corporate platform for an ICT company, statically exported and served behind a hardened Nginx edge.",
+    caseStudy: {
+      problem:
+        "Entuen needed a single credible surface that explains a wide ICT ecosystem (hardware manufacturing, telco, IoT, AI, and consumer QR/NFC platforms) to three very different audiences: enterprise, public sector, and consumer partners.",
+      role:
+        "Defined the technical direction and delivered the platform end to end: information architecture, bilingual content model, frontend build, static export pipeline, and production deployment.",
+      techStack: ["Next.js App Router", "React", "TypeScript", "Tailwind CSS", "EN/ID i18n routing", "Nginx", "Docker"],
+      implementation:
+        "Structured the site as eight layered sections (pillars, value chain, clients, values, leadership, differentiators, engagement flow, FAQ) on the Next.js App Router with a [lang] dynamic segment driving EN/ID routing. Statically exported and served from Nginx with a strict Content-Security-Policy, HSTS, X-Frame-Options, and a locked-down Permissions-Policy.",
+      impact:
+        "Gave Entuen one authoritative platform that converts a broad multi-layer ICT offering into a navigable story for B2B, B2G, and B2C prospects, and doubles as the entry point to its product brands.",
+    },
+  },
+  {
     id: "16",
-    title: "BH-Labs.com - B2B Wellness Recovery Pod Platform",
+    title: "bh-labs.com - B2B Wellness Recovery Pod Platform",
     description:
       "Built and deployed the marketing and lead-generation site for BH Labs, a B2B company selling turnkey 'Recovery Pod' systems that bundle six clinical-grade recovery modalities (HBOT, red light, infrared sauna, PEMF, compression, lymphatic) into a plug-and-play install for hotels, gyms, universities, and residences.",
     tech: ["WordPress", "PHP", "Elementor", "SEO", "Nginx"],
@@ -61,7 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: "15",
-    title: "TheBioHackLab.com - Biohacking & Recovery Studio Site",
+    title: "thebiohacklab.com - Biohacking & Recovery Studio Site",
     description:
       "Built the web presence for The Biohack Lab, a consumer-facing biohacking and recovery wellness brand, presenting recovery services and modalities with a booking/enquiry path on a WordPress stack.",
     tech: ["WordPress", "PHP", "Elementor", "SEO", "Nginx"],
@@ -85,7 +112,7 @@ export const projects: Project[] = [
   },
   {
     id: "14",
-    title: "Vox.Manibo.ai - AI Sales Chat Agent Widget",
+    title: "vox.manibo.ai - AI Sales Chat Agent Widget",
     description:
       "Built an embeddable AI chat agent for sales, delivered as a drop-in JavaScript widget any website can install with a single script tag. Visitors get an always-on sales assistant that qualifies leads, answers product questions, and drives conversion.",
     tech: ["TypeScript", "Preact", "LLM", "REST API", "Nginx", "Embeddable Widget"],
@@ -102,14 +129,14 @@ export const projects: Project[] = [
         "Owned product and full-stack delivery: the embeddable widget loader, configurable UI, chat API, and LLM-backed sales agent behavior.",
       techStack: ["TypeScript", "Preact", "LLM", "REST API", "Nginx", "Embeddable Widget"],
       implementation:
-        "Shipped a self-contained widget.js loader configurable via data attributes (color, position, greeting, API base), a /api/chat backend, and an LLM agent tuned for sales conversations — installable on any host with one script tag.",
+        "Shipped a self-contained widget.js loader configurable via data attributes (color, position, greeting, API base), a /api/chat backend, and an LLM agent tuned for sales conversations. Any host installs it with one script tag.",
       impact:
         "A single script-tag install drops a 24/7 LLM sales agent onto any site, configured entirely through data attributes (color, position, greeting, API base) and qualifying leads round the clock without added headcount.",
     },
   },
   {
     id: "13",
-    title: "POS.ThankYouBro.id - Multi-tenant POS & Inventory SaaS",
+    title: "pos.thankyoubro.id - Multi-tenant POS & Inventory SaaS",
     description:
       "Built a multi-tenant point-of-sale and inventory platform for Indonesian wholesale (grosir) businesses, with multi-outlet transactions, role-based access, real-time sales dashboards, audit trails, and tiered pricing.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Multi-tenant", "REST API", "Nginx"],
@@ -121,7 +148,7 @@ export const projects: Project[] = [
     highlight: "Multi-tenant SaaS spanning POS, inventory, reporting, and access control across outlets.",
     caseStudy: {
       problem:
-        "Wholesale SMEs needed a single system to run multi-outlet sales, track inventory in real time, and control who can do what — without enterprise pricing.",
+        "Wholesale SMEs needed a single system to run multi-outlet sales, track inventory in real time, and control who can do what, without enterprise pricing.",
       role:
         "Owned product, architecture, and delivery: multi-tenant data model, POS flow, dashboards, role-based access, and billing tiers.",
       techStack: ["Next.js", "TypeScript", "PostgreSQL", "Multi-tenant", "REST API", "Nginx"],
@@ -133,7 +160,7 @@ export const projects: Project[] = [
   },
   {
     id: "12",
-    title: "Photobox.ThankYouBro.id - Photo Booth Operations Platform",
+    title: "photobox.thankyoubro.id - Photo Booth Operations Platform",
     description:
       "Built a React SPA for photo booth services with a split admin / marketing / platform architecture, supporting customer-facing flows and internal operations from a single deployment.",
     tech: ["React.js", "Vite", "TypeScript", "Tailwind CSS", "Nginx"],
@@ -152,14 +179,14 @@ export const projects: Project[] = [
       implementation:
         "Split the SPA into admin, marketing, and platform module chunks served from one Vite build behind Nginx, with shared design system and routing.",
       impact:
-        "One Vite build and one deployment serve all three surfaces — admin, marketing, and platform — from a single codebase and shared design system, cutting operational overhead versus running separate apps.",
+        "One Vite build and one deployment serve all three surfaces (admin, marketing, and platform) from a single codebase and shared design system, cutting operational overhead versus running separate apps.",
     },
   },
   {
     id: "11",
-    title: "PeTag.id - QR-based Lost Pet Recovery Platform",
+    title: "petag.id - QR-based Lost Pet Recovery Platform",
     description:
-      "Built a QR pet-ID platform that lets owners register pets, generate printable QR collar tags, control contact privacy, and track pet genealogy — helping reunite lost pets with owners in Indonesia.",
+      "Built a QR pet-ID platform that lets owners register pets, generate printable QR collar tags, control contact privacy, and track pet genealogy, helping reunite lost pets with owners in Indonesia.",
     tech: ["Next.js", "TypeScript", "QR Code", "PostgreSQL", "Nginx"],
     year: "2026",
     type: "Web Platform",
@@ -176,12 +203,12 @@ export const projects: Project[] = [
       implementation:
         "Implemented QR tag generation per pet, three privacy modes (public / contact-only / private), email verification, lineage tracking, and Next.js ISR for fast public pages.",
       impact:
-        "Turns a printable QR collar tag into a free recovery channel with owner-controlled privacy — three privacy modes (public / contact-only / private), email verification, and lineage tracking — so a scan reaches the owner without exposing personal info publicly.",
+        "Turns a printable QR collar tag into a free recovery channel with owner-controlled privacy: three privacy modes (public, contact-only, private), email verification, and lineage tracking. A scan reaches the owner without exposing personal info publicly.",
     },
   },
   {
     id: "10",
-    title: "BaliBersih.com - On-demand Cleaning Service Platform",
+    title: "balibersih.com - On-demand Cleaning Service Platform",
     description:
       "Developed a mobile-first web platform for on-demand cleaning services across Bali with instant WhatsApp booking, dynamic pricing display, and SEO-focused service pages.",
     tech: ["TypeScript", "Tailwind CSS", "JavaScript", "WhatsApp Booking"],
@@ -205,14 +232,14 @@ export const projects: Project[] = [
   },
   {
     id: "09",
-    title: "Mitranesia.id - Franchise Marketplace Platform",
+    title: "mitranesia.id - Franchise Marketplace Platform",
     description:
       "Built an end-to-end marketplace for local franchise businesses, covering dynamic listings, franchise package comparison, inquiry automation, a Python API, PostgreSQL storage, Docker packaging, and AWS deployment.",
     tech: ["React.js", "Tailwind CSS", "Python", "PostgreSQL", "Docker", "AWS"],
     year: "2024",
     type: "Fullstack Web Application",
     categories: ["Frontend", "Backend", "DevOps", "Data", "Automation"],
-    link: "https://mitranesia.id",
+    archived: true,
     featured: true,
     highlight: "Full-stack marketplace spanning product UX, backend APIs, data, and cloud deployment.",
     caseStudy: {

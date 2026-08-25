@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# TypeScript incremental build output
+*.tsbuildinfo
+
+# Generated at build time by scripts/generate-seo.mjs (lastmod changes daily)
+public/sitemap.xml
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -27,3 +33,46 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Single lockfile policy: npm (package-lock.json) is the source of truth.
+# CI runs `npm ci`, so a second lockfile would silently diverge.
+bun.lockb
+bun.lock
+yarn.lock
+pnpm-lock.yaml
+
+# AI assistant / agent tooling. Local-only: never commit these, so the public
+# repo carries no trace of which tools were used.
+.claude/
+.claude*
+CLAUDE.md
+CLAUDE.local.md
+.anthropic/
+.codex/
+AGENTS.md
+.cursor/
+.cursorrules
+.cursorignore
+.github/copilot-instructions.md
+.copilot/
+.aider*
+.gemini/
+GEMINI.md
+.windsurf/
+.windsurfrules
+.continue/
+.codeium/
+.sourcegraph/
+.cody/
+.tabnine/
+.kilocode/
+.roo/
+.cline/
+.clinerules
+.mcp.json
+.opencode/
+.crush/
+.junie/
+.qodo/
+llm.txt
+.ai/

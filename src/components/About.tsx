@@ -79,7 +79,7 @@ const About = () => {
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Currently Building</h3>
                   <p className="text-surface-medium">
-                    Shipping full-stack &amp; AI SaaS — Vox AI sales agent, multi-tenant POS, PeTag, Photobox (2026).
+                    Shipping full-stack &amp; AI SaaS in 2026: Vox AI sales agent, multi-tenant POS, PeTag, and Photobox.
                   </p>
                 </div>
               </div>

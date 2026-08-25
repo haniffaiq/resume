@@ -1,50 +1,25 @@
 import { Card } from "@/components/ui/card";
-import { Activity, BarChart3, Bot, Network, Rocket, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  Activity,
+  BarChart3,
+  Bot,
+  Network,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
+import { metrics, type MetricIconKey } from "@/data/metrics";
 
-const metrics = [
-  {
-    value: "500K+",
-    label: "messages / month",
-    context: "Scaled production WhatsApp bot traffic at Huawei Indonesia.",
-    icon: Bot,
-  },
-  {
-    value: "100+",
-    label: "groups supported",
-    context: "Operated automation across large team and customer channels.",
-    icon: Network,
-  },
-  {
-    value: "90+",
-    label: "APIs refactored",
-    context: "Modernized API surfaces while integrating CRM and cloud systems.",
-    icon: Activity,
-  },
-  {
-    value: "5",
-    label: "Grafana dashboards",
-    context: "Built observability views for enterprise FINNET services.",
-    icon: BarChart3,
-  },
-  {
-    value: "5+",
-    label: "years experience",
-    context: "DevOps, backend, data engineering, IoT, and automation delivery.",
-    icon: ShieldCheck,
-  },
-  {
-    value: "4+",
-    label: "SaaS products shipped",
-    context: "Designed, built, and deployed full-stack SaaS & AI products end to end in 2026.",
-    icon: Rocket,
-  },
-  {
-    value: "24/7",
-    label: "AI sales agent",
-    context: "Embeddable LLM sales agent qualifying leads round the clock.",
-    icon: Sparkles,
-  },
-];
+const icons: Record<MetricIconKey, LucideIcon> = {
+  activity: Activity,
+  barChart3: BarChart3,
+  bot: Bot,
+  network: Network,
+  rocket: Rocket,
+  shieldCheck: ShieldCheck,
+  sparkles: Sparkles,
+};
 
 const AchievementMetrics = () => {
   return (
@@ -63,7 +38,7 @@ const AchievementMetrics = () => {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {metrics.map((metric) => {
-            const Icon = metric.icon;
+            const Icon = icons[metric.icon];
 
             return (
               <Card

@@ -1,14 +1,5 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# https://haniffaiq.com
 User-agent: *
 Allow: /
+
+Sitemap: https://haniffaiq.com/sitemap.xml

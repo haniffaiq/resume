@@ -2,13 +2,21 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
+import { prefersReducedMotion } from "@/lib/utils";
+import { testimonials } from "@/data/testimonials";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // The testimonials section only renders once there are real recommendations,
+  // so its nav entry has to disappear with it or the link scrolls nowhere.
+  const navItems = profile.navItems.filter(
+    (item) => item.sectionId !== "testimonials" || testimonials.length > 0
+  );
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
+    element?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" });
     setMobileOpen(false);
   };
 
@@ -20,12 +28,14 @@ const Header = () => {
             <img
               src="/logo.svg"
               alt={profile.logoAlt}
+              width={40}
+              height={40}
               className="h-10 w-10"
             />
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            {profile.navItems.map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item.sectionId}
                 onClick={() => scrollToSection(item.sectionId)}
@@ -52,7 +62,7 @@ const Header = () => {
 
         {mobileOpen && (
           <div className="md:hidden mt-4 flex flex-col space-y-4 bg-background border border-border rounded-lg p-4">
-            {profile.navItems.map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item.sectionId}
                 onClick={() => scrollToSection(item.sectionId)}

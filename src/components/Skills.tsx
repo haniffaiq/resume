@@ -14,87 +14,25 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import {
+  skillGroups,
+  type SkillIconKey,
+  type SkillLevel,
+} from "@/data/skill-groups";
 
-type SkillLevel = "Expert" | "Advanced" | "Intermediate";
-
-type Skill = {
-  name: string;
-  icon: LucideIcon;
-  level: SkillLevel;
+const icons: Record<SkillIconKey, LucideIcon> = {
+  barChart: BarChart,
+  bot: Bot,
+  cloud: Cloud,
+  code: Code,
+  cpu: Cpu,
+  database: Database,
+  fileCode: FileCode,
+  layout: Layout,
+  network: Network,
+  server: Server,
+  terminal: Terminal,
 };
-
-type SkillGroup = {
-  title: string;
-  recruiterSignal: string;
-  summary: string;
-  skills: Skill[];
-};
-
-const skillGroups: SkillGroup[] = [
-  {
-    title: "Backend & API Engineering",
-    recruiterSignal: "Python, Node.js, REST APIs, microservices",
-    summary:
-      "Production service design, API modernization, integration work, and maintainable backend delivery.",
-    skills: [
-      { name: "Python", icon: FileCode, level: "Expert" },
-      { name: "REST API", icon: Code, level: "Expert" },
-      { name: "Node.js", icon: Server, level: "Advanced" },
-      { name: "Express.js", icon: Server, level: "Advanced" },
-      { name: "Microservices", icon: Network, level: "Advanced" },
-    ],
-  },
-  {
-    title: "DevOps, Cloud & Reliability",
-    recruiterSignal: "AWS, GCP, Docker, CI/CD, Linux, monitoring",
-    summary:
-      "Cloud deployments, containerized delivery, zero-downtime operations, and observability-minded support.",
-    skills: [
-      { name: "Docker", icon: Cpu, level: "Expert" },
-      { name: "AWS", icon: Cloud, level: "Advanced" },
-      { name: "GCP", icon: Cloud, level: "Advanced" },
-      { name: "CI/CD", icon: Terminal, level: "Advanced" },
-      { name: "Nginx", icon: Server, level: "Advanced" },
-      { name: "Monitoring", icon: BarChart, level: "Advanced" },
-      { name: "Linux", icon: Terminal, level: "Advanced" },
-      { name: "Bash", icon: Terminal, level: "Advanced" },
-      { name: "Podman", icon: Cpu, level: "Advanced" },
-      { name: "Azure", icon: Cloud, level: "Intermediate" },
-    ],
-  },
-  {
-    title: "Data Platforms & Analytics",
-    recruiterSignal: "PostgreSQL, SQL, BigQuery, ETL, dashboards",
-    summary:
-      "Operational databases, analytics pipelines, monitoring dashboards, and business reporting workflows.",
-    skills: [
-      { name: "PostgreSQL", icon: Database, level: "Expert" },
-      { name: "SQL", icon: Database, level: "Advanced" },
-      { name: "MySQL", icon: Database, level: "Advanced" },
-      { name: "CDC / ETL", icon: Database, level: "Advanced" },
-      { name: "BigQuery", icon: Database, level: "Advanced" },
-      { name: "MongoDB", icon: Database, level: "Intermediate" },
-      { name: "Redis", icon: Database, level: "Intermediate" },
-      { name: "Looker", icon: BarChart, level: "Intermediate" },
-      { name: "Excel", icon: BarChart, level: "Intermediate" },
-    ],
-  },
-  {
-    title: "Frontend, Automation & IoT",
-    recruiterSignal: "React, TailwindCSS, bots, IoT dashboards",
-    summary:
-      "Recruiter-visible product surfaces, chat automation, and connected-device dashboards for operational users.",
-    skills: [
-      { name: "React", icon: Layout, level: "Intermediate" },
-      { name: "TailwindCSS", icon: Code, level: "Intermediate" },
-      { name: "HTML/CSS", icon: Code, level: "Intermediate" },
-      { name: "Bootstrap", icon: Code, level: "Intermediate" },
-      { name: "Telegram Bot", icon: Bot, level: "Advanced" },
-      { name: "WhatsApp Bot", icon: Bot, level: "Advanced" },
-      { name: "IoT", icon: Bot, level: "Intermediate" },
-    ],
-  },
-];
 
 const levelStyles: Record<SkillLevel, string> = {
   Expert: "border-primary/30 bg-primary/10 text-primary",
@@ -129,7 +67,7 @@ const Skills = () => {
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {group.skills.map((skill) => {
-                  const Icon = skill.icon;
+                  const Icon = icons[skill.icon];
 
                   return (
                     <div

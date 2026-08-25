@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Star } from "lucide-react";
+import { Archive, ExternalLink, Star } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   orderedProjects,
@@ -65,34 +65,44 @@ const Projects = () => {
             return (
             <Card
               key={project.id}
-              className={`bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border transition-colors flex flex-col hover:bg-white/10 ${
+              className={`flex flex-col overflow-hidden rounded-xl border bg-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 ${
                 project.featured ? "border-primary/70 ring-1 ring-primary/30" : "border-white/10"
               }`}
             >
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="flex items-center justify-between gap-3 mb-5">
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300">
+              <div className="flex flex-1 flex-col p-6">
+                {/* Meta: type on the left, status and year pinned right */}
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <p className="text-[11px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-gray-400">
                     {project.type}
-                  </span>
-                  <div className="flex items-center gap-2 whitespace-nowrap">
+                  </p>
+                  <div className="flex shrink-0 items-center gap-2">
                     {project.link ? (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-green-400/40 bg-green-400/15 px-2.5 py-1 text-xs font-medium text-green-300">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-green-400/40 bg-green-400/15 px-2 py-0.5 text-[11px] font-medium text-green-300">
                         <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
                         Live
                       </span>
                     ) : null}
-                    {project.featured ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/20 px-2.5 py-1 text-xs font-medium text-primary-foreground">
-                        <Star size={11} aria-hidden="true" />
-                        Featured
+                    {project.archived ? (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 text-[11px] font-medium text-amber-300">
+                        <Archive size={10} aria-hidden="true" />
+                        Archived
                       </span>
                     ) : null}
-                    <span className="text-gray-400 text-xs">{project.year}</span>
+                    <span className="text-xs tabular-nums text-gray-400">{project.year}</span>
                   </div>
                 </div>
 
-                <div className="mb-3 min-h-[3.75rem]">
-                  <h3 className="text-lg font-bold leading-snug text-white">{projectName}</h3>
+                <div className="mb-3">
+                  <h3 className="flex items-start gap-1.5 text-lg font-bold leading-snug text-white">
+                    <span className="break-words">{projectName}</span>
+                    {project.featured ? (
+                      <Star
+                        size={13}
+                        className="mt-1 shrink-0 fill-primary-foreground/80 text-primary-foreground/80"
+                        aria-label="Featured project"
+                      />
+                    ) : null}
+                  </h3>
                   {projectSubtitle ? (
                     <p className="mt-1 text-sm font-medium leading-snug text-primary-foreground/70">
                       {projectSubtitle}
@@ -100,7 +110,7 @@ const Projects = () => {
                   ) : null}
                 </div>
 
-                <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
+                <p className="line-clamp-4 text-sm leading-relaxed text-gray-300">
                   {project.description}
                 </p>
 
@@ -110,11 +120,11 @@ const Projects = () => {
                   </p>
                 ) : null}
 
-                <div className="flex flex-wrap gap-2 mt-auto pt-5">
+                <div className="mt-auto flex flex-wrap gap-2 pt-5">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-primary/20 text-primary-foreground text-xs rounded-full border border-primary/30"
+                      className="rounded-full border border-primary/30 bg-primary/20 px-2 py-1 text-xs text-primary-foreground"
                     >
                       {tech}
                     </span>
@@ -122,12 +132,12 @@ const Projects = () => {
                 </div>
               </div>
 
-              <div className="p-6 border-t border-white/10 flex justify-between items-center gap-3">
+              <div className="flex flex-col gap-3 border-t border-white/10 p-6 sm:flex-row sm:items-center sm:justify-between">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setSelectedProject(project)}
-                  className="border-white/20 text-black hover:bg-white/10"
+                  className="w-full border-white/30 bg-transparent text-white hover:bg-white/15 hover:text-white sm:w-auto"
                 >
                   View Case Study
                 </Button>
@@ -139,7 +149,14 @@ const Projects = () => {
                   onClick={() => {
                     if (project.link) window.open(project.link, "_blank", "noopener,noreferrer");
                   }}
-                  className="border-white/20 text-black hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full border-white/30 bg-transparent text-white hover:bg-white/15 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed sm:w-auto"
+                  title={
+                    project.link
+                      ? undefined
+                      : project.archived
+                        ? "Site is no longer publicly available"
+                        : "No public link for this project"
+                  }
                 >
                   <ExternalLink size={14} className="mr-2" />
                   Direct Link
@@ -247,6 +264,11 @@ const Projects = () => {
                   <ExternalLink size={14} />
                   Visit Project
                 </a>
+              ) : selectedProject.archived ? (
+                <p className="inline-flex w-fit items-center gap-2 rounded-md border bg-muted px-3 py-2 text-sm text-surface-medium">
+                  <Archive size={14} aria-hidden="true" />
+                  Delivered and shipped, but the public site is no longer available.
+                </p>
               ) : null}
             </>
           )}
